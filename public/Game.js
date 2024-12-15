@@ -9,6 +9,7 @@ const InitializeScene = () => {
     SetRightArrowEvent();
     SetVelocityChangeEvent();
     SetRadiusChangeEvent();
+    SetKeyPressEvents();
     // SetReminderButtonEvent();
     // TODO
     // Create a component base class which has awake and update methods, and instantiate those classes instead.
@@ -58,6 +59,19 @@ const SetReminderButtonEvent = () => {
     const button = document.getElementById("notifications-button");
     button.addEventListener("click", () => {
         window.dispatchEvent(notificationsClickEvent);
+    });
+};
+const SetKeyPressEvents = () => {
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "a") {
+            // Dispatch the same event as the left arrow click
+            const leftArrowClickEvent = new CustomEvent('Game:LeftArrowClick');
+            window.dispatchEvent(leftArrowClickEvent);
+        } else if (event.key === "d") {
+            // Dispatch the same event as the right arrow click
+            const rightArrowClickEvent = new CustomEvent('Game:RightArrowClick');
+            window.dispatchEvent(rightArrowClickEvent);
+        }
     });
 };
 InitializeScene();

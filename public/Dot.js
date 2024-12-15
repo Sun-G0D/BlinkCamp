@@ -6,7 +6,7 @@ export class Dot extends GameElement {
         // Pass the parent class a reference which will then be this new object.
         let gameElementInstance = null;
         super(dotElement, gameElementInstance);
-        this.velocity = 3;
+        this.velocity = 4;
         this.dTime = 0;
         this.halfScreen = 50;
         gameElementInstance = this;
